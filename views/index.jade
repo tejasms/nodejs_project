@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(name="add-estimation", method="post")
+    div.input
+        span.label First Name
+        input(type="text", name="firstName")
+    div.input
+        span.label Last Name
+        input(type="text", name="lastName")
+    div.input
+        span.label Email
+        input(type="text", name="email")
+    div.actions
+        input(type="submit", value="Add")
+  if users
+    ul
+      each user in users
+        if user
+          li=user.firstName + " " + user.lastName + " " + user.email
